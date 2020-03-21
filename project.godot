@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="MushroomMan"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://level/Level.tscn"
 config/icon="res://icon.png"
 
 [display]
