@@ -26,10 +26,12 @@ func _on_ShotTimer_timeout():
 		$DefenseSound.play()
 	else:
 		$AttackSound.play()
+	connect("turtle_died", bullet, "queue_free")
 	_is_next_offense = !_is_next_offense
 	get_parent().add_child(bullet)
 
 func _on_death():
+	$ShotTimer.stop()
 	$DeathSound.play()
 	visible = false
 	emit_signal("turtle_died")
