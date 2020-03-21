@@ -16,3 +16,4 @@ func _process(delta):
 func _on_area_entered(area):
 	if is_offense and area.name == "Mushroom":
 		area.damage()
+		queue_free()
