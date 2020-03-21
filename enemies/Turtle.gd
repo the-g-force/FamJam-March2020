@@ -14,7 +14,7 @@ func _ready():
 
 # Inflict one damage to the turtle
 func damage():
-	queue_free()
+	$HealthTracker.reduce_health()
 
 func _on_ShotTimer_timeout():
 	var bullet = EnemyBullet.instance()
@@ -22,3 +22,6 @@ func _on_ShotTimer_timeout():
 	bullet.is_offense = _is_next_offense 
 	_is_next_offense = !_is_next_offense
 	get_parent().add_child(bullet)
+
+func _on_death():
+	queue_free()

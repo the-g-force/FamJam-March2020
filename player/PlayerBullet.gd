@@ -22,6 +22,7 @@ func _process(delta):
 func _on_area_entered(area):
 	if is_offense and area.name == "Turtle":
 		area.damage()
+		queue_free()
 	if area.is_in_group("EnemyBullet"):
 		# The trick here is that the alternate types kill each other.
 		if is_offense != area.is_offense:
