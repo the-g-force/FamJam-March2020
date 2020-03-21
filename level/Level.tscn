@@ -20,10 +20,10 @@ centered = false
 [node name="Attack" type="TextureButton" parent="Background"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 372.033
-margin_top = -76.3176
-margin_right = 553.033
-margin_bottom = 1.68243
+margin_left = 386.473
+margin_top = -82.6351
+margin_right = 567.473
+margin_bottom = -4.63507
 texture_normal = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -32,27 +32,31 @@ __meta__ = {
 [node name="Defense" type="TextureButton" parent="Background"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 159.815
-margin_top = -76.0276
-margin_right = 340.815
-margin_bottom = 1.97241
+margin_left = 163.425
+margin_top = -82.3451
+margin_right = 344.425
+margin_bottom = -4.34509
 texture_normal = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Mushroom" parent="." instance=ExtResource( 1 )]
-position = Vector2( 185.242, 281.986 )
+position = Vector2( 182.534, 262.131 )
 
 [node name="Turtle" parent="." instance=ExtResource( 2 )]
-position = Vector2( 526.012, 286.545 )
+position = Vector2( 522.402, 273.007 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 autoplay = true
 
 [node name="Seahorse" parent="." instance=ExtResource( 5 )]
+position = Vector2( 0.902496, -10.83 )
 rotation = 0.014717
 
 [node name="Cart" parent="." instance=ExtResource( 7 )]
-position = Vector2( 719.075, 221.284 )
+position = Vector2( 718.173, 190.599 )
 rotation = 0.014717
 [connection signal="pressed" from="Background/Attack" to="Mushroom" method="shoot_offense"]
 [connection signal="pressed" from="Background/Defense" to="Mushroom" method="shoot_defense"]
