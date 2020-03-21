@@ -1,3 +1,5 @@
+tool
+
 extends Node2D
 
 
@@ -7,7 +9,7 @@ extends Node2D
 
 signal death
 
-export var image = preload("res://enemies/Red.png")
+export var image = preload("health.png")
 
 export var max_health = 3
 

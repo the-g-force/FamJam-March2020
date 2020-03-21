@@ -21,6 +21,6 @@ autostart = true
 texture = ExtResource( 2 )
 
 [node name="HealthTracker" parent="." instance=ExtResource( 3 )]
-position = Vector2( 0.950012, -89.3 )
+position = Vector2( -75.05, -104.5 )
 [connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]
 [connection signal="death" from="HealthTracker" to="." method="_on_death"]
