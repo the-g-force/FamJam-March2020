@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemies/Turtle.tscn" type="PackedScene" id=2]
@@ -9,10 +9,6 @@
 [ext_resource path="res://cart/Cart.tscn" type="PackedScene" id=7]
 [ext_resource path="res://menu/button-attack.png" type="Texture" id=8]
 [ext_resource path="res://menu/button-block.png" type="Texture" id=9]
-[ext_resource path="res://level/Attack.gd" type="Script" id=10]
-[ext_resource path="res://level/Defense.gd" type="Script" id=11]
-[ext_resource path="res://menu/button-attack-disabled.png" type="Texture" id=12]
-[ext_resource path="res://menu/button-block-disabled.png" type="Texture" id=13]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 6 )
@@ -29,8 +25,6 @@ margin_top = -82.6351
 margin_right = 567.473
 margin_bottom = -4.63507
 texture_normal = ExtResource( 8 )
-texture_disabled = ExtResource( 12 )
-script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -43,8 +37,6 @@ margin_top = -82.3451
 margin_right = 344.425
 margin_bottom = -4.34509
 texture_normal = ExtResource( 9 )
-texture_disabled = ExtResource( 13 )
-script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

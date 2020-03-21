@@ -28,5 +28,10 @@ func _on_ShotTimer_timeout():
 	get_parent().add_child(bullet)
 
 func _on_death():
+	$DeathSound.play()
+	visible = false
 	emit_signal("turtle_died")
+	remove_child($CollisionShape2D)
+	
+func _on_DeathSound_finished():
 	queue_free()
