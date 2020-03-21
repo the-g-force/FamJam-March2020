@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemies/Turtle.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://level/Level.gd" type="Script" id=6]
 [ext_resource path="res://cart/Cart.tscn" type="PackedScene" id=7]
 [ext_resource path="res://menu/button-attack.png" type="Texture" id=8]
+[ext_resource path="res://menu/button-block.png" type="Texture" id=9]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 6 )
@@ -19,29 +20,29 @@ centered = false
 [node name="Attack" type="TextureButton" parent="Background"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 272.378
-margin_top = -70.6126
-margin_right = 453.378
-margin_bottom = 7.38739
+margin_left = 372.033
+margin_top = -76.3176
+margin_right = 553.033
+margin_bottom = 1.68243
 texture_normal = ExtResource( 8 )
-
-[node name="Defense" type="Button" parent="Background"]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = -30.0
-margin_right = 65.0
-margin_bottom = -10.0
-text = "Defense"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Defense" type="TextureButton" parent="Background"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 159.815
+margin_top = -76.0276
+margin_right = 340.815
+margin_bottom = 1.97241
+texture_normal = ExtResource( 9 )
+
 [node name="Mushroom" parent="." instance=ExtResource( 1 )]
-position = Vector2( 205.097, 304.549 )
+position = Vector2( 185.242, 281.986 )
 
 [node name="Turtle" parent="." instance=ExtResource( 2 )]
-position = Vector2( 518.792, 311.815 )
+position = Vector2( 526.012, 286.545 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
