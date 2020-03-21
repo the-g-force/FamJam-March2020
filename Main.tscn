@@ -11,7 +11,7 @@ texture = ExtResource( 3 )
 centered = false
 
 [node name="Mushroom" parent="." instance=ExtResource( 1 )]
-position = Vector2( 122.067, 244.082 )
+position = Vector2( 205.097, 304.549 )
 
 [node name="Turtle" parent="." instance=ExtResource( 2 )]
-position = Vector2( 647.85, 252.25 )
+position = Vector2( 518.792, 311.815 )

@@ -11,12 +11,15 @@ var is_offense = true
 func _ready():
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position.x = position.x + 5
 	update()
 
 func _draw():
-	var radius = $Area2D/CollisionShape2D.shape.radius
+	var radius = $CollisionShape2D.shape.radius
 	draw_circle(Vector2(), radius, Color.green if is_offense else Color.red)
+
+func _on_area_entered(area):
+	if is_offense and area.name == "Turtle":
+		area.damage()

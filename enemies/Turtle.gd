@@ -15,9 +15,9 @@ func _ready():
 #	pass
 
 func _draw():
-	var extents = $Area2D/CollisionShape2D.shape.extents
+	var extents = $CollisionShape2D.shape.extents
 	draw_rect(Rect2(-extents.x, -extents.y, extents.x*2, extents.y*2), Color.green, true)
 
-
-func _on_area_entered(area):
-	print("Turtle hit")
+# Inflict one damage to the turtle
+func damage():
+	queue_free()
