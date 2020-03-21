@@ -23,3 +23,10 @@ func _draw():
 func _on_area_entered(area):
 	if is_offense and area.name == "Turtle":
 		area.damage()
+	if area.is_in_group("EnemyBullet"):
+		# The trick here is that the alternate types kill each other.
+		if is_offense != area.is_offense:
+			area.queue_free()
+			queue_free()
+			
+			
