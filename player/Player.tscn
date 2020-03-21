@@ -19,5 +19,5 @@ texture = ExtResource( 2 )
 
 [node name="HealthTracker" parent="." instance=ExtResource( 3 )]
 position = Vector2( -125.701, -116.145 )
-max_health = 1
+max_health = 5
 [connection signal="death" from="HealthTracker" to="." method="_on_death"]
