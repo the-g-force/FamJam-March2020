@@ -48,7 +48,7 @@ position = Vector2( 518.792, 311.815 )
 stream = ExtResource( 4 )
 autoplay = true
 
-[node name="Node2D" parent="." instance=ExtResource( 5 )]
+[node name="Seahorse" parent="." instance=ExtResource( 5 )]
 [connection signal="pressed" from="Background/Attack" to="Mushroom" method="_on_Attack_pressed"]
 [connection signal="pressed" from="Background/Defense" to="Mushroom" method="_on_Defense_pressed"]
 [connection signal="player_died" from="Mushroom" to="." method="_on_player_died"]
