@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://enemies/Turtle.gd" type="Script" id=1]
 [ext_resource path="res://enemies/turtle.png" type="Texture" id=2]
+[ext_resource path="res://util/HealthTracker.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 61.7, 48.9 )
@@ -18,4 +19,8 @@ autostart = true
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+
+[node name="HealthTracker" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0.950012, -89.3 )
 [connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]
+[connection signal="death" from="HealthTracker" to="." method="_on_death"]
