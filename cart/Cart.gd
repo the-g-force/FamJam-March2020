@@ -16,11 +16,14 @@ func _process(delta):
 		if position.x <= destination_x:
 			_is_rolling_in = false
 
-
 func roll_in():
 	_is_rolling_in = true
 
 
 func _on_area_entered(area):
 	if area.is_in_group("Chainsaw"):
-		$Cart.visible = false;
+		$HealthTracker.reduce_health()
+
+
+func _on_cart_death():
+	$Cart.visible = false
