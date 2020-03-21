@@ -14,6 +14,5 @@ func _process(delta):
 	position.x -= 5
 
 func _on_area_entered(area):
-	print(area.name)
 	if is_offense and area.name == "Mushroom":
 		area.damage()
