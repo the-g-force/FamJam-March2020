@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mushroomdefense.wav-f3d50c6514c63c3a9899562e5c2d04ba.sample"
+
+[deps]
+
+source_file="res://player/mushroomdefense.wav"
+dest_files=[ "res://.import/mushroomdefense.wav-f3d50c6514c63c3a9899562e5c2d04ba.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

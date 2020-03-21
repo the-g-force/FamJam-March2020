@@ -38,10 +38,12 @@ func _input(event):
 func shoot_offense():
 	if _chainsaw_mode:
 		_is_chainsawing = true
+		$ChainsawSound.play()
 	elif cooldown == false:
 		var bullet = PlayerBullet.instance()
 		get_parent().add_child(bullet)
 		bullet.position = position
+		$AttackSound.play()
 		cooldown = true
 		yield(get_tree().create_timer(0.5), 'timeout')
 		cooldown = false
@@ -49,16 +51,19 @@ func shoot_offense():
 func shoot_defense():
 	if _chainsaw_mode:
 		_is_chainsawing = true
+		$ChainsawSound.play()
 	elif cooldown == false:
 		var bullet = PlayerBullet.instance()
 		bullet.is_offense = false
 		get_parent().add_child(bullet)
 		bullet.position = position
+		$DefenseSound.play()
 		cooldown = true
 		yield(get_tree().create_timer(0.5), 'timeout')
 		cooldown = false
 
 func damage():
+	$HitSound.play()
 	$HealthTracker.reduce_health()
 
 func _on_death():

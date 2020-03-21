@@ -15,12 +15,15 @@ func _ready():
 
 # Inflict one damage to the turtle
 func damage():
+	$HitSound.play()
 	$HealthTracker.reduce_health()
 
 func _on_ShotTimer_timeout():
 	var bullet = EnemyBullet.instance()
 	bullet.position = position
 	bullet.is_offense = _is_next_offense 
+	if bullet.is_offense:
+		$DefenseSound.play()
 	_is_next_offense = !_is_next_offense
 	get_parent().add_child(bullet)
 
