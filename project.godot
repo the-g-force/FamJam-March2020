@@ -19,6 +19,12 @@ config/name="MushroomMan"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=720
+window/size/height=414
+window/size/resizable=false
+
 [input]
 
 shoot_offense={
