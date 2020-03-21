@@ -1,27 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://endgame/Lose.gd" type="Script" id=1]
 [ext_resource path="res://endgame/fIRST.ogg" type="AudioStream" id=2]
 [ext_resource path="res://endgame/dead-svg.png" type="Texture" id=3]
+[ext_resource path="res://endgame/youlose.png" type="Texture" id=4]
 
 [node name="LoseScene" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="Label" type="Label" parent="."]
-margin_left = 274.55
-margin_top = 132.05
-margin_right = 446.55
-margin_bottom = 146.05
-text = "You Lose, You Losing Loser"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Button" type="Button" parent="."]
-margin_left = 294.5
-margin_top = 316.35
-margin_right = 428.5
-margin_bottom = 336.35
+margin_left = 272.4
+margin_top = 332.1
+margin_right = 490.4
+margin_bottom = 416.1
 text = "Back to Main Menu"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -32,6 +23,11 @@ stream = ExtResource( 2 )
 autoplay = true
 
 [node name="dead-svg" type="Sprite" parent="."]
-position = Vector2( 361.901, 229.451 )
+position = Vector2( 384.701, 255.101 )
 texture = ExtResource( 3 )
+
+[node name="youlose" type="Sprite" parent="."]
+position = Vector2( 384.701, 105.475 )
+scale = Vector2( 0.608124, 0.543432 )
+texture = ExtResource( 4 )
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
