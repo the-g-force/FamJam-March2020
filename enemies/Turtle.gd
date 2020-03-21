@@ -24,6 +24,8 @@ func _on_ShotTimer_timeout():
 	bullet.is_offense = _is_next_offense 
 	if bullet.is_offense:
 		$DefenseSound.play()
+	else:
+		$AttackSound.play()
 	_is_next_offense = !_is_next_offense
 	get_parent().add_child(bullet)
 

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/turtleshoot.wav-1ce180592c5abc038b42bb719927a27d.sample"
+
+[deps]
+
+source_file="res://enemies/turtleshoot.wav"
+dest_files=[ "res://.import/turtleshoot.wav-1ce180592c5abc038b42bb719927a27d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
