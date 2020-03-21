@@ -16,9 +16,6 @@ func _process(delta):
 		if position.x <= destination_x:
 			_is_rolling_in = false
 
-func _input(event):
-	if event.is_action("debug_roll_cart"):
-		_is_rolling_in = true
 
 func roll_in():
 	_is_rolling_in = true

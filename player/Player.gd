@@ -51,9 +51,6 @@ func _input(event):
 			cooldown = true
 			yield(get_tree().create_timer(0.5), 'timeout')
 			cooldown = false
-	if event.is_action("swing_chainsaw"):
-		_is_chainsawing = true
-		$ChainsawPath/ChainsawFollow/Chainsaw.visible = true
 
 func damage():
 	$HealthTracker.reduce_health()
