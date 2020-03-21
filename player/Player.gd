@@ -1,12 +1,15 @@
 extends Node2D
 
 signal player_died
+signal can_shoot
+signal cannot_shoot
 
 var cooldown = false
 var _is_chainsawing = false
 var _chainsaw_mode = false
 export var chainsaw_unit_speed = 0.07
 export var chainsaw_unit_speed_variance = 0.02
+export var cooldown_timer = 0.5
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -28,6 +31,10 @@ func _process(delta):
 			_is_chainsawing = false
 			new_offset = 0
 		follow.unit_offset = new_offset
+	if cooldown == false:
+		emit_signal("can_shoot")
+	elif cooldown:
+		emit_signal("cannot_shoot")
 
 func _input(event):
 	if event.is_action("shoot_offense"):
@@ -45,7 +52,7 @@ func shoot_offense():
 		bullet.position = position
 		$AttackSound.play()
 		cooldown = true
-		yield(get_tree().create_timer(0.5), 'timeout')
+		yield(get_tree().create_timer(cooldown_timer), 'timeout')
 		cooldown = false
 			
 func shoot_defense():
@@ -59,7 +66,7 @@ func shoot_defense():
 		bullet.position = position
 		$DefenseSound.play()
 		cooldown = true
-		yield(get_tree().create_timer(0.5), 'timeout')
+		yield(get_tree().create_timer(cooldown_timer), 'timeout')
 		cooldown = false
 
 func damage():

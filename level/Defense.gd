@@ -1,6 +1,5 @@
 extends TextureButton
 
-var _available = true
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -11,13 +10,15 @@ var _available = true
 func _ready():
 	pass # Replace with function body.
 
-func _pressed():
-	if _available:
-		disabled = true
-		_available = false
-		yield(get_tree().create_timer(0.5), 'timeout')
-		_available = true
-		disabled = false
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Mushroom_can_shoot():
+	disabled = false
+
+
+func _on_Mushroom_cannot_shoot():
+	disabled = true
