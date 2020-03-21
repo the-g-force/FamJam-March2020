@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://endgame/Lose.gd" type="Script" id=1]
+[ext_resource path="res://endgame/fIRST.ogg" type="AudioStream" id=2]
 
 [node name="LoseScene" type="Node2D"]
 script = ExtResource( 1 )
@@ -24,4 +25,8 @@ text = "Back to Main Menu"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
