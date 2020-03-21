@@ -2,6 +2,7 @@ extends Node2D
 
 # Where it wheels to
 export var destination_x = 250
+export var speed_x = 5
 
 var _is_rolling_in = false
 
@@ -11,7 +12,7 @@ func _ready():
 
 func _process(delta):
 	if _is_rolling_in:
-		position.x -= 5
+		position.x -= speed_x
 		if position.x <= destination_x:
 			_is_rolling_in = false
 
