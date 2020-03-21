@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemies/Turtle.tscn" type="PackedScene" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://cart/Cart.tscn" type="PackedScene" id=7]
 [ext_resource path="res://menu/button-attack.png" type="Texture" id=8]
 [ext_resource path="res://menu/button-block.png" type="Texture" id=9]
+[ext_resource path="res://level/Attack.gd" type="Script" id=10]
+[ext_resource path="res://level/Defense.gd" type="Script" id=11]
+[ext_resource path="res://menu/button-attack-disabled.png" type="Texture" id=12]
+[ext_resource path="res://level/button-block-disabled.png" type="Texture" id=13]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 6 )
@@ -28,6 +32,8 @@ margin_top = 69.2339
 margin_right = 384.939
 margin_bottom = 147.234
 texture_normal = ExtResource( 8 )
+texture_disabled = ExtResource( 12 )
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -40,6 +46,8 @@ margin_top = 69.5239
 margin_right = 161.891
 margin_bottom = 147.524
 texture_normal = ExtResource( 9 )
+texture_disabled = ExtResource( 13 )
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -58,10 +66,10 @@ rotation = 0.014717
 [node name="Cart" parent="." instance=ExtResource( 7 )]
 position = Vector2( 718.173, 190.599 )
 rotation = 0.014717
-[connection signal="can_shoot" from="Mushroom" to="Mushroom/Attack" method="_on_Mushroom_can_shoot"]
 [connection signal="can_shoot" from="Mushroom" to="Mushroom/Defense" method="_on_Mushroom_can_shoot"]
-[connection signal="cannot_shoot" from="Mushroom" to="Mushroom/Attack" method="_on_Mushroom_cannot_shoot"]
+[connection signal="can_shoot" from="Mushroom" to="Mushroom/Attack" method="_on_Mushroom_can_shoot"]
 [connection signal="cannot_shoot" from="Mushroom" to="Mushroom/Defense" method="_on_Mushroom_cannot_shoot"]
+[connection signal="cannot_shoot" from="Mushroom" to="Mushroom/Attack" method="_on_Mushroom_cannot_shoot"]
 [connection signal="player_died" from="Mushroom" to="." method="_on_player_died"]
 [connection signal="pressed" from="Mushroom/Attack" to="Mushroom" method="shoot_offense"]
 [connection signal="pressed" from="Mushroom/Defense" to="Mushroom" method="shoot_defense"]
