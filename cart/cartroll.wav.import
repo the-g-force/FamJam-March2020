@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/cartroll.wav-54e09098a33112f5789ab7b625759514.sample"
+
+[deps]
+
+source_file="res://cart/cartroll.wav"
+dest_files=[ "res://.import/cartroll.wav-54e09098a33112f5789ab7b625759514.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

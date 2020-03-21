@@ -18,6 +18,7 @@ func _process(delta):
 
 func roll_in():
 	_is_rolling_in = true
+	$CartRollSound.play()
 
 
 func _on_area_entered(area):
