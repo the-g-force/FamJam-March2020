@@ -11,6 +11,30 @@
 texture = ExtResource( 3 )
 centered = false
 
+[node name="Attack" type="Button" parent="Background"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = -30.0
+margin_right = 52.0
+margin_bottom = -10.0
+text = "Attack"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Defense" type="Button" parent="Background"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = -30.0
+margin_right = 65.0
+margin_bottom = -10.0
+text = "Defense"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Mushroom" parent="." instance=ExtResource( 1 )]
 position = Vector2( 205.097, 304.549 )
 
@@ -20,3 +44,5 @@ position = Vector2( 518.792, 311.815 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 autoplay = true
+[connection signal="pressed" from="Background/Attack" to="Mushroom" method="_on_Attack_pressed"]
+[connection signal="pressed" from="Background/Defense" to="Mushroom" method="_on_Defense_pressed"]
