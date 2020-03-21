@@ -1,9 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://player/mushroomman.png" type="Texture" id=2]
 [ext_resource path="res://util/HealthTracker.tscn" type="PackedScene" id=3]
 [ext_resource path="res://player/saw-color.png" type="Texture" id=4]
+[ext_resource path="res://player/chainsaw.wav" type="AudioStream" id=5]
+[ext_resource path="res://player/mushroomhit.wav" type="AudioStream" id=6]
+[ext_resource path="res://player/mushroomdeath.wav" type="AudioStream" id=7]
+[ext_resource path="res://player/mushroomdefense.wav" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 29.5528, 64.6972 )
@@ -50,4 +54,16 @@ shape = SubResource( 3 )
 position = Vector2( 12.4275, -38.1838 )
 rotation = -1.30534
 texture = ExtResource( 4 )
+
+[node name="ChainsawSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+
+[node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+
+[node name="DefenseSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
 [connection signal="death" from="HealthTracker" to="." method="_on_death"]
