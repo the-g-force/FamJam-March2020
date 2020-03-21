@@ -34,3 +34,9 @@ func _input(event):
 			cooldown = true
 			yield(get_tree().create_timer(0.5), 'timeout')
 			cooldown = false
+
+func damage():
+	$HealthTracker.reduce_health()
+
+func _on_death():
+	queue_free()
