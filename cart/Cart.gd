@@ -19,3 +19,11 @@ func _process(delta):
 func _input(event):
 	if event.is_action("debug_roll_cart"):
 		_is_rolling_in = true
+
+func roll_in():
+	_is_rolling_in = true
+
+
+func _on_area_entered(area):
+	if area.is_in_group("Chainsaw"):
+		$Cart.visible = false;

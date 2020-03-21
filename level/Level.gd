@@ -19,3 +19,7 @@ func _ready():
 
 func _on_player_died():
 	emit_signal("player_died")
+
+func _on_turtle_died():
+	$Cart.roll_in()
+	$Mushroom.equip_chainsaw()

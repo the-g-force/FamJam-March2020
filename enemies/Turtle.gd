@@ -3,6 +3,7 @@ extends Node2D
 const EnemyBullet = preload("res://enemies/EnemyBullet.tscn")
 
 var _is_next_offense = true
+signal turtle_died
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,4 +25,5 @@ func _on_ShotTimer_timeout():
 	get_parent().add_child(bullet)
 
 func _on_death():
+	emit_signal("turtle_died")
 	queue_free()

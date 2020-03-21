@@ -4,6 +4,7 @@ signal player_died
 
 var cooldown = false
 var _is_chainsawing = false
+var _chainsaw_mode = false
 export var chainsaw_unit_speed = 0.07
 export var chainsaw_unit_speed_variance = 0.02
 
@@ -30,7 +31,9 @@ func _process(delta):
 
 func _input(event):
 	if event.is_action("shoot_offense"):
-		if cooldown == false:
+		if _chainsaw_mode:
+			_is_chainsawing = true
+		elif cooldown == false:
 			var bullet = PlayerBullet.instance()
 			get_parent().add_child(bullet)
 			bullet.position = position
@@ -38,7 +41,9 @@ func _input(event):
 			yield(get_tree().create_timer(0.5), 'timeout')
 			cooldown = false
 	if event.is_action("shoot_defense"):
-		if cooldown == false:
+		if _chainsaw_mode:
+			_is_chainsawing = true
+		elif cooldown == false:
 			var bullet = PlayerBullet.instance()
 			bullet.is_offense = false
 			get_parent().add_child(bullet)
@@ -77,3 +82,7 @@ func _on_Attack_pressed():
 		cooldown = true
 		yield(get_tree().create_timer(0.5), 'timeout')
 		cooldown = false
+
+func equip_chainsaw():
+	_chainsaw_mode = true
+	$ChainsawPath/ChainsawFollow/Chainsaw.visible = true

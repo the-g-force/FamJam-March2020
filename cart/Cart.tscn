@@ -1,16 +1,24 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://cart/cart.png" type="Texture" id=1]
 [ext_resource path="res://cart/Cart.gd" type="Script" id=2]
 [ext_resource path="res://johnson/joejohnson.png" type="Texture" id=3]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 80.4505, 70.75 )
+
+[node name="Node2D" type="Area2D"]
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Jo" type="Sprite" parent="."]
 position = Vector2( 76.9501, 63.6501 )
 texture = ExtResource( 3 )
 
 [node name="Cart" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 81.95, 71.2501 )
+shape = SubResource( 1 )
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
