@@ -55,7 +55,7 @@ rotation = 0.014717
 [node name="Cart" parent="." instance=ExtResource( 7 )]
 position = Vector2( 719.075, 221.284 )
 rotation = 0.014717
-[connection signal="pressed" from="Background/Attack" to="Mushroom" method="_on_Attack_pressed"]
-[connection signal="pressed" from="Background/Defense" to="Mushroom" method="_on_Defense_pressed"]
+[connection signal="pressed" from="Background/Attack" to="Mushroom" method="shoot_offense"]
+[connection signal="pressed" from="Background/Defense" to="Mushroom" method="shoot_defense"]
 [connection signal="player_died" from="Mushroom" to="." method="_on_player_died"]
 [connection signal="turtle_died" from="Turtle" to="." method="_on_turtle_died"]

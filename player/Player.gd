@@ -31,37 +31,25 @@ func _process(delta):
 
 func _input(event):
 	if event.is_action("shoot_offense"):
-		if _chainsaw_mode:
-			_is_chainsawing = true
-		elif cooldown == false:
-			var bullet = PlayerBullet.instance()
-			get_parent().add_child(bullet)
-			bullet.position = position
-			cooldown = true
-			yield(get_tree().create_timer(0.5), 'timeout')
-			cooldown = false
+		shoot_offense()
 	if event.is_action("shoot_defense"):
-		if _chainsaw_mode:
-			_is_chainsawing = true
-		elif cooldown == false:
-			var bullet = PlayerBullet.instance()
-			bullet.is_offense = false
-			get_parent().add_child(bullet)
-			bullet.position = position
-			cooldown = true
-			yield(get_tree().create_timer(0.5), 'timeout')
-			cooldown = false
+		shoot_defense()
 
-func damage():
-	$HealthTracker.reduce_health()
-
-func _on_death():
-	emit_signal("player_died")
-	queue_free()
-
-
-func _on_Defense_pressed():
-	if cooldown == false:
+func shoot_offense():
+	if _chainsaw_mode:
+		_is_chainsawing = true
+	elif cooldown == false:
+		var bullet = PlayerBullet.instance()
+		get_parent().add_child(bullet)
+		bullet.position = position
+		cooldown = true
+		yield(get_tree().create_timer(0.5), 'timeout')
+		cooldown = false
+			
+func shoot_defense():
+	if _chainsaw_mode:
+		_is_chainsawing = true
+	elif cooldown == false:
 		var bullet = PlayerBullet.instance()
 		bullet.is_offense = false
 		get_parent().add_child(bullet)
@@ -70,16 +58,17 @@ func _on_Defense_pressed():
 		yield(get_tree().create_timer(0.5), 'timeout')
 		cooldown = false
 
+func damage():
+	$HealthTracker.reduce_health()
 
-func _on_Attack_pressed():
-	if cooldown == false:
-		var bullet = PlayerBullet.instance()
-		get_parent().add_child(bullet)
-		bullet.position = position
-		cooldown = true
-		yield(get_tree().create_timer(0.5), 'timeout')
-		cooldown = false
+func _on_death():
+	emit_signal("player_died")
+	queue_free()
 
 func equip_chainsaw():
 	_chainsaw_mode = true
 	$ChainsawPath/ChainsawFollow/Chainsaw.visible = true
+
+
+func _shoot_offense():
+	pass # Replace with function body.
