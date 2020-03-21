@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemies/Turtle.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://seahorse/SeaHorse.tscn" type="PackedScene" id=5]
 [ext_resource path="res://level/Level.gd" type="Script" id=6]
 [ext_resource path="res://cart/Cart.tscn" type="PackedScene" id=7]
+[ext_resource path="res://menu/button-attack.png" type="Texture" id=8]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 6 )
@@ -15,17 +16,14 @@ script = ExtResource( 6 )
 texture = ExtResource( 3 )
 centered = false
 
-[node name="Attack" type="Button" parent="Background"]
+[node name="Attack" type="TextureButton" parent="Background"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 100.0
-margin_top = -30.0
-margin_right = 52.0
-margin_bottom = -100.0
-text = "Attack"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_left = 272.378
+margin_top = -70.6126
+margin_right = 453.378
+margin_bottom = 7.38739
+texture_normal = ExtResource( 8 )
 
 [node name="Defense" type="Button" parent="Background"]
 anchor_top = 1.0
