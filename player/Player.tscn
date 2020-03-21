@@ -1,11 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://player/mushroomman.png" type="Texture" id=2]
 [ext_resource path="res://util/HealthTracker.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player/bullet-red.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 29.5528, 64.6972 )
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -66.0356, -57.3457, 2.20528, -62.483, -2.20528, 62.483, -46.1881, -0.00839233, 0, 0, 0, 0, -65.3005, 60.2693 )
+}
 
 [node name="Mushroom" type="Area2D"]
 script = ExtResource( 1 )
@@ -20,4 +26,16 @@ texture = ExtResource( 2 )
 [node name="HealthTracker" parent="." instance=ExtResource( 3 )]
 position = Vector2( -125.701, -116.145 )
 max_health = 5
+
+[node name="ChainsawPath" type="Path2D" parent="."]
+position = Vector2( 80, 0 )
+curve = SubResource( 2 )
+
+[node name="ChainsawFollow" type="PathFollow2D" parent="ChainsawPath"]
+position = Vector2( -66.0356, -57.3457 )
+rotation = 0.099858
+
+[node name="Chainsaw" type="Sprite" parent="ChainsawPath/ChainsawFollow"]
+visible = false
+texture = ExtResource( 4 )
 [connection signal="death" from="HealthTracker" to="." method="_on_death"]

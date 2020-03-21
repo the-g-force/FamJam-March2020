@@ -3,6 +3,9 @@ extends Node2D
 signal player_died
 
 var cooldown = false
+var _is_chainsawing = false
+export var chainsaw_unit_speed = 0.07
+export var chainsaw_unit_speed_variance = 0.02
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -15,8 +18,15 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if _is_chainsawing:
+		var follow = $ChainsawPath/ChainsawFollow
+		var variance = chainsaw_unit_speed + rand_range(-chainsaw_unit_speed_variance, chainsaw_unit_speed_variance)
+		var new_offset = follow.unit_offset + variance
+		if new_offset >= 1:
+			_is_chainsawing = false
+			new_offset = 0
+		follow.unit_offset = new_offset
 
 func _input(event):
 	if event.is_action("shoot_offense"):
@@ -36,6 +46,9 @@ func _input(event):
 			cooldown = true
 			yield(get_tree().create_timer(0.5), 'timeout')
 			cooldown = false
+	if event.is_action("swing_chainsaw"):
+		_is_chainsawing = true
+		$ChainsawPath/ChainsawFollow/Chainsaw.visible = true
 
 func damage():
 	$HealthTracker.reduce_health()
