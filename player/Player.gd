@@ -47,23 +47,28 @@ func shoot_offense():
 		_is_chainsawing = true
 		$ChainsawSound.play()
 	elif cooldown == false:
-		var bullet = PlayerBullet.instance()
-		get_parent().add_child(bullet)
-		bullet.position = position
+		_spawn_bullet(true)
 		$AttackSound.play()
 		cooldown = true
 		yield(get_tree().create_timer(cooldown_timer), 'timeout')
 		cooldown = false
 			
+func _spawn_bullet(is_offense):
+	var bullet = PlayerBullet.instance()
+	bullet.is_offense = is_offense
+	bullet.position = position
+	get_parent().add_child(bullet)
+	bullet.connect("bullet_collision", self, "_on_bullet_collision")
+	
+func _on_bullet_collision():
+	$BulletCollisionSound.play()
+
 func shoot_defense():
 	if _chainsaw_mode:
 		_is_chainsawing = true
 		$ChainsawSound.play()
 	elif cooldown == false:
-		var bullet = PlayerBullet.instance()
-		bullet.is_offense = false
-		get_parent().add_child(bullet)
-		bullet.position = position
+		_spawn_bullet(false)
 		$DefenseSound.play()
 		cooldown = true
 		yield(get_tree().create_timer(cooldown_timer), 'timeout')

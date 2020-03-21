@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://player/mushroomman.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://player/mushroomhit.wav" type="AudioStream" id=6]
 [ext_resource path="res://player/mushroomdeath.wav" type="AudioStream" id=7]
 [ext_resource path="res://player/mushroomdefense.wav" type="AudioStream" id=8]
+[ext_resource path="res://player/bullet_collision.wav" type="AudioStream" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 29.5528, 64.6972 )
@@ -66,4 +67,7 @@ stream = ExtResource( 7 )
 
 [node name="DefenseSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
+
+[node name="BulletCollisionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
 [connection signal="death" from="HealthTracker" to="." method="_on_death"]
