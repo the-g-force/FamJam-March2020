@@ -1,7 +1,6 @@
 extends Node2D
 
-var X = 1
-var Y = 1
+var speed = 3
 var screen_size
 
 # Declare member variables here. Examples:
@@ -16,12 +15,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position.x = position.x + X
-	position.y = position.y + Y
-	position.x = clamp(position.x, 0, screen_size.x)
-	position.y = clamp(position.y, 0, screen_size.y)
-
+	position.x = position.x + speed
+	if speed == abs(speed):
+		$Sprite.flip_h = false
+	else:
+		$Sprite.flip_h = true
+	
 
 func _on_Timer_timeout():
-	X = rand_range(-1,1)
-	Y = rand_range(-1,1)
+	speed = -speed
+
