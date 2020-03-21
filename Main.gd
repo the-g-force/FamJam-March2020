@@ -20,19 +20,19 @@ func _ready():
 
 
 func _on_HUD_start_game():
-	$HUD.queue_free()
-	var level = Level.instance()
-	add_child(level)
+	var level = _replace_current_level(Level)
 	level.connect("player_died", self, "_on_player_died")
 
 func _on_player_died():
-	var level = Lose.instance()
-	add_child(level)
-	remove_child(get_child(0)) # Remove active level, leaving only the loss level
+	var level = _replace_current_level(Lose)
 	level.connect("dismiss_lose_screen", self, "_on_dismiss_lose_screen")
 
 func _on_dismiss_lose_screen():
-	var hud = HUD.instance()
-	add_child(hud)
-	remove_child(get_child(0))
+	var hud = _replace_current_level(HUD)
 	hud.connect("start_game", self, "_on_HUD_start_game")
+
+func _replace_current_level(Scene):
+	var level = Scene.instance()
+	add_child(level)
+	remove_child(get_child(0))
+	return level
