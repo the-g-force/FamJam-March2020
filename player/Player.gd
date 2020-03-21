@@ -16,10 +16,6 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func _draw():
-	var extents = $Area2D/CollisionShape2D.shape.extents
-	draw_rect(Rect2(-extents.x,-extents.y,extents.x*2, extents.y*2), Color.white, true)
-
 func _input(event):
 	if event.is_action("shoot_offense"):
 		if cooldown == false:

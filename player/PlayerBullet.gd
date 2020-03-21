@@ -9,16 +9,15 @@ var is_offense = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	if is_offense:
+		$DefenseSprite.visible = false
+	else:
+		$OffenseSprite.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position.x = position.x + 5
 	update()
-
-func _draw():
-	var radius = $CollisionShape2D.shape.radius
-	draw_circle(Vector2(), radius, Color.green if is_offense else Color.red)
 
 func _on_area_entered(area):
 	if is_offense and area.name == "Turtle":

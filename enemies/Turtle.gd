@@ -1,10 +1,5 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 const EnemyBullet = preload("res://enemies/EnemyBullet.tscn")
 
 var _is_next_offense = true
@@ -16,10 +11,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
-func _draw():
-	var extents = $CollisionShape2D.shape.extents
-	draw_rect(Rect2(-extents.x, -extents.y, extents.x*2, extents.y*2), Color.green, true)
 
 # Inflict one damage to the turtle
 func damage():
