@@ -1,5 +1,7 @@
 extends Node2D
 
+signal player_died
+
 var cooldown = false
 
 # Declare member variables here. Examples:
@@ -39,6 +41,7 @@ func damage():
 	$HealthTracker.reduce_health()
 
 func _on_death():
+	emit_signal("player_died")
 	queue_free()
 
 
