@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://cart/cart.png" type="Texture" id=1]
 [ext_resource path="res://cart/Cart.gd" type="Script" id=2]
 [ext_resource path="res://johnson/joejohnson.png" type="Texture" id=3]
 [ext_resource path="res://util/HealthTracker.tscn" type="PackedScene" id=4]
 [ext_resource path="res://cart/cartroll.wav" type="AudioStream" id=5]
+[ext_resource path="res://cart/savejo.wav" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 80.4505, 70.75 )
@@ -29,5 +30,9 @@ position = Vector2( 155.8, 39.9001 )
 
 [node name="CartRollSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
+
+[node name="Conversation" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="death" from="HealthTracker" to="." method="_on_cart_death"]
+[connection signal="finished" from="Conversation" to="." method="_on_Conversation_finished"]

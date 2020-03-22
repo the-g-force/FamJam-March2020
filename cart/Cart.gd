@@ -4,6 +4,8 @@ extends Node2D
 export var destination_x = 250
 export var speed_x = 5
 
+signal player_wins
+
 var _is_rolling_in = false
 
 # Called when the node enters the scene tree for the first time.
@@ -28,3 +30,8 @@ func _on_area_entered(area):
 
 func _on_cart_death():
 	$Cart.visible = false
+	$Conversation.play()
+
+
+func _on_Conversation_finished():
+	emit_signal("player_wins")

@@ -74,3 +74,4 @@ rotation = 0.014717
 [connection signal="pressed" from="Mushroom/Attack" to="Mushroom" method="shoot_offense"]
 [connection signal="pressed" from="Mushroom/Defense" to="Mushroom" method="shoot_defense"]
 [connection signal="turtle_died" from="Turtle" to="." method="_on_turtle_died"]
+[connection signal="player_wins" from="Cart" to="." method="_on_player_wins"]
