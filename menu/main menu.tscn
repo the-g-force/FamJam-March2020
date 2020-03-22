@@ -13,10 +13,10 @@ centered = false
 [node name="StartButton" type="Button" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 620.566
-margin_top = -87.0026
-margin_right = 663.566
-margin_bottom = -57.0026
+margin_left = 621.0
+margin_top = -87.0
+margin_right = 677.0
+margin_bottom = -57.0
 text = "PLAY"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -31,7 +31,7 @@ margin_left = -99.8221
 margin_top = -44.585
 margin_right = -55.8221
 margin_bottom = -14.585
-text = "HELP"
+text = "ABOUT"
 __meta__ = {
 "_edit_use_anchors_": false
 }
