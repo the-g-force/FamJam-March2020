@@ -12,7 +12,18 @@ func _ready():
 	pass # Replace with function body.
 
 func duck():
-	$AudioStreamPlayer.volume_db -= duck_amount_db
+	$LevelMusic.volume_db -= duck_amount_db
 	
 func unduck():
-	$AudioStreamPlayer.volume_db += duck_amount_db
+	$LevelMusic.volume_db += duck_amount_db
+	
+
+func play_level_song():
+	if not $LevelMusic.playing:
+		$LossMusic.stop()
+		$LevelMusic.play()
+	
+func play_lose_song():
+	$LossMusic.play()
+	$LevelMusic.stop()
+

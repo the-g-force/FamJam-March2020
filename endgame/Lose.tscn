@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://endgame/Lose.gd" type="Script" id=1]
-[ext_resource path="res://endgame/fIRST.ogg" type="AudioStream" id=2]
 [ext_resource path="res://endgame/dead-svg.png" type="Texture" id=3]
 [ext_resource path="res://endgame/youlose.png" type="Texture" id=4]
 
@@ -17,10 +16,6 @@ text = "Back to Main Menu"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
-autoplay = true
 
 [node name="dead-svg" type="Sprite" parent="."]
 position = Vector2( 384.701, 255.101 )

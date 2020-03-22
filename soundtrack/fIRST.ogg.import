@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/fIRST.ogg-f69ff4dcd70dadca03e3db1c9ca4f3d0.oggstr"
+
+[deps]
+
+source_file="res://soundtrack/fIRST.ogg"
+dest_files=[ "res://.import/fIRST.ogg-f69ff4dcd70dadca03e3db1c9ca4f3d0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
