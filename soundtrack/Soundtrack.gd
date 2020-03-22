@@ -17,13 +17,19 @@ func duck():
 func unduck():
 	$LevelMusic.volume_db += duck_amount_db
 	
+func play_menu_song():
+	$MenuMusic.play()
+	$LossMusic.stop()
+	$LevelMusic.stop()
 
 func play_level_song():
 	if not $LevelMusic.playing:
 		$LossMusic.stop()
+		$MenuMusic.stop()
 		$LevelMusic.play()
 	
 func play_lose_song():
 	$LossMusic.play()
 	$LevelMusic.stop()
+	$MenuMusic.stop()
 

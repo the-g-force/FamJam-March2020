@@ -6,7 +6,7 @@ var AboutPage = preload("res://menu/AboutPage.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	$"/root/Soundtrack".play_menu_song()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
