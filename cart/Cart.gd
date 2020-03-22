@@ -29,7 +29,9 @@ func _on_area_entered(area):
 func _on_cart_death():
 	$Cart.visible = false
 	$Conversation.play()
+	$"/root/Soundtrack".duck()
 
 
 func _on_Conversation_finished():
+	$"/root/Soundtrack".unduck()
 	emit_signal("player_wins")

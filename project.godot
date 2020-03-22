@@ -19,6 +19,10 @@ config/name="MushroomMan"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Soundtrack="*res://Soundtrack.tscn"
+
 [display]
 
 window/size/width=720

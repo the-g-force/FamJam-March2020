@@ -5,7 +5,7 @@ signal player_wins
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$"/root/Soundtrack".get_node("AudioStreamPlayer").play()
 
 func _on_player_died():
 	emit_signal("player_died")
