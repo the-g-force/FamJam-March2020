@@ -22,11 +22,9 @@ func roll_in():
 	_is_rolling_in = true
 	$CartRollSound.play()
 
-
 func _on_area_entered(area):
-	if area.is_in_group("Chainsaw"):
+	if area.is_in_group("Chainsaw") && $Cart.visible:
 		$HealthTracker.reduce_health()
-
 
 func _on_cart_death():
 	$Cart.visible = false
