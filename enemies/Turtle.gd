@@ -2,7 +2,6 @@ extends Node2D
 
 const EnemyBullet = preload("res://enemies/EnemyBullet.tscn")
 
-var _is_next_offense = true
 signal turtle_died
 
 # Called when the node enters the scene tree for the first time.
@@ -19,6 +18,7 @@ func damage():
 	$HealthTracker.reduce_health()
 
 func _on_ShotTimer_timeout():
+	var _is_next_offense = randi() %2 == 0
 	var bullet = EnemyBullet.instance()
 	bullet.position = position
 	bullet.is_offense = _is_next_offense 
