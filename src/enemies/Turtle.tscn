@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://enemies/Turtle.gd" type="Script" id=1]
 [ext_resource path="res://enemies/turtle.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://enemies/turtledefense.wav" type="AudioStream" id=5]
 [ext_resource path="res://enemies/turtledeath.wav" type="AudioStream" id=6]
 [ext_resource path="res://enemies/turtleshoot.wav" type="AudioStream" id=7]
+[ext_resource path="res://util/health.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 73.1, 36.55 )
@@ -22,10 +23,14 @@ shape = SubResource( 1 )
 autostart = true
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 2.09561, 3.29304 )
+scale = Vector2( 0.730272, 0.706825 )
 texture = ExtResource( 2 )
 
 [node name="HealthTracker" parent="." instance=ExtResource( 3 )]
 position = Vector2( -75.05, -104.5 )
+image = ExtResource( 8 )
+max_health = 3
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
