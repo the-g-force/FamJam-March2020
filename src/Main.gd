@@ -5,21 +5,6 @@ var Level = preload("res://level/Level.tscn")
 var Lose = preload("res://endgame/Lose.tscn")
 var Win = preload("res://endgame/Win.tscn")
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
 func _on_MainMenu_start_game():
 	var level = _replace_current_level(Level)
 	level.connect("player_died", self, "_on_player_died")

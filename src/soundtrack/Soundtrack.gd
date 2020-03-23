@@ -7,29 +7,40 @@ extends Node2D
 
 export var duck_amount_db = 15
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+const _SONGS = {
+	"Level": {
+		"path": preload("LevelMusic.ogg"),
+		"volume": -12
+	},
+	"Menu": {
+		"path": preload("START.ogg"),
+		"volume": 15
+	},
+	"Loss": {
+		"path": preload("fIRST.ogg"),
+		"volume": -12
+	}
+}
 
 func duck():
-	$LevelMusic.volume_db -= duck_amount_db
+	$Music.volume_db -= duck_amount_db
 	
 func unduck():
-	$LevelMusic.volume_db += duck_amount_db
+	$Music.volume_db += duck_amount_db
 	
 func play_menu_song():
-	$MenuMusic.play()
-	$LossMusic.stop()
-	$LevelMusic.stop()
+	_change_song("Menu")
 
 func play_level_song():
-	if not $LevelMusic.playing:
-		$LossMusic.stop()
-		$MenuMusic.stop()
-		$LevelMusic.play()
+	if $Music.stream != _SONGS["Level"]["path"]:
+		_change_song("Level")
 	
 func play_lose_song():
-	$LossMusic.play()
-	$LevelMusic.stop()
-	$MenuMusic.stop()
+	_change_song("Loss")
+	
+func _change_song(key):
+	var song = _SONGS[key]
+	$Music.stream = song["path"]
+	$Music.volume_db = song["volume"]
+	$Music.play()
 
